@@ -112,7 +112,6 @@ function Command() {
           filename = argv.f + '.txt';
         }
         const todo = argv.Todo;
-        console.log(clear, filename, todo)
         markDone(todo, filename, clear);
       }
     )

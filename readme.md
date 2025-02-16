@@ -73,6 +73,9 @@ To explore available commands and their usage, run:
 note --help
 ```
 
+## Note : By defaul a index named Todo conatiners have been made if no flag specified all changes will happen in this container
+
+
 ### 🔹 Managing Todo Containers
 
 - **List all Todo containers:**
