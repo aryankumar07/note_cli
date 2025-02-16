@@ -4,6 +4,7 @@ import { createDir } from "../operations/createRoot.js";
 import { createFile } from "../operations/createFile.js"
 import { createTodo } from "../operations/createTodo.js";
 import { showList } from "../operations/showList.js";
+import { deleteFile } from "../operations/deleteFile.js"
 
 
 function Command() {
@@ -66,6 +67,15 @@ function Command() {
           filename = argv.f + '.txt'
         }
         createTodo(todo, filename)
+      }
+    )
+    .command(
+      'delete <FileName>',
+      'delete the file with all the contents in it',
+      (yargs) => { },
+      (argv) => {
+        const filename = argv.FileName + '.txt'
+        deleteFile(filename)
       }
     )
     .argv
