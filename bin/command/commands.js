@@ -6,10 +6,47 @@ import { createTodo } from "../operations/createTodo.js";
 import { showList } from "../operations/showList.js";
 import { deleteFile } from "../operations/deleteFile.js"
 import { markDone } from "../operations/markDone.js";
+import spinner from "../utils/getSpinner.js";
+import figlet from "figlet";
+import chalk from "chalk";
 
 
 function Command() {
   yargs(hideBin(process.argv))
+    .usage('Usage: note <command> [options]')
+    .command(
+      '$0', // Default command when no arguments are passed
+      'Display CLI information',
+      () => { },
+      () => {
+        spinner.succeed(
+          figlet.textSync(`NOTE`, {
+            font: "Ghost",
+            horizontalLayout: "default",
+            verticalLayout: "default",
+            width: 80,
+            whitespaceBreak: true,
+          })
+        );
+        console.log(`
+          ${chalk.blue.bold("Welcome to Note CLI! 🚀")}
+
+          ${chalk.yellow.bold("Usage:")}
+          ${chalk.green("note <command> [options]")}
+
+          ${chalk.yellow.bold("Commands:")}
+          ${chalk.cyan("init")}         ${chalk.white("Create the base folder")}
+          ${chalk.cyan("create")}       ${chalk.white("Create a specific named todo container")}
+          ${chalk.cyan("list")}         ${chalk.white("List all todo containers")}
+          ${chalk.cyan("add")}          ${chalk.white("Add a todo to a container")}
+          ${chalk.cyan("delete")}       ${chalk.white("Delete a todo container")}
+          ${chalk.cyan("done")}         ${chalk.white("Mark a todo as done")}
+
+          ${chalk.yellow.bold("For more details on a command, run:")}
+          ${chalk.green("note <command> --help")}
+          `);
+      }
+    )
     .command(
       'init',
       'Create the base folder',
