@@ -13,7 +13,7 @@ As developers, we spend a significant amount of time in our terminals. Why not h
 Clone the repository and navigate to its root directory:
 
 ```bash
-git clone <repoLink>
+git clone https://github.com/aryankumar07/note_cli.git 
 cd note_cli
 ```
 
@@ -73,7 +73,7 @@ To explore available commands and their usage, run:
 note --help
 ```
 
-## Note : By defaul a index named Todo conatiners have been made if no flag specified all changes will happen in this container
+## Note : By default a index named Todo conatiners have been made if no flag specified all changes will happen in this container
 
 
 ### 🔹 Managing Todo Containers
