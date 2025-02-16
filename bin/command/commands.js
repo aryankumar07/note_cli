@@ -5,6 +5,7 @@ import { createFile } from "../operations/createFile.js"
 import { createTodo } from "../operations/createTodo.js";
 import { showList } from "../operations/showList.js";
 import { deleteFile } from "../operations/deleteFile.js"
+import { markDone } from "../operations/markDone.js";
 
 
 function Command() {
@@ -76,6 +77,43 @@ function Command() {
       (argv) => {
         const filename = argv.FileName + '.txt'
         deleteFile(filename)
+      }
+    )
+    .command(
+      'done [Todo]',
+      'Remove the todo',
+      (yargs) => {
+        yargs.options('a', {
+          alias: "all",
+          description: "mark done all the todo",
+          demandOption: false,
+          type: 'boolean'
+        })
+          .options('f', {
+            alias: "file",
+            description: "file in which to mark the todo as done",
+            demandOption: false,
+            type: 'string'
+          })
+          .check((argv) => {
+            if (argv.a) {
+              return true;
+            }
+            if (!argv.Todo) {
+              throw new Error('Todo is required unless --all is provided');
+            }
+            return true;
+          });
+      },
+      (argv) => {
+        const clear = argv.a;
+        let filename = 'index.txt';
+        if (argv.f) {
+          filename = argv.f + '.txt';
+        }
+        const todo = argv.Todo;
+        console.log(clear, filename, todo)
+        markDone(todo, filename, clear);
       }
     )
     .argv

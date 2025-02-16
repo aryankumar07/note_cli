@@ -7,7 +7,7 @@ export async function showList(filename, FolderName = ".local/share/Notes") {
       const filePath = await getPath(filename, FolderName)
       await fs.access(filePath)
       const data = await fs.readFile(filePath, 'utf-8')
-      console.log(`Here are the task for ${filename} `)
+      console.log(`Here are the task for ${filename.split('.')[0]} `)
       console.log(data)
     } else {
       const folderPath = await getPath('', FolderName)

@@ -3,7 +3,6 @@ import { showList } from "./showList.js"
 import PromptSync from "prompt-sync"
 import { getPath } from '../utils/getPath.js'
 
-
 export async function deleteFile(filename, FolderName = ".local/share/Notes") {
   const prompt = PromptSync()
   try {
