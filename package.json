@@ -14,6 +14,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "chalk": "^5.4.1",
+    "ora": "^8.2.0",
     "prompt-sync": "^4.2.0",
     "yargs": "^17.7.2"
   }
