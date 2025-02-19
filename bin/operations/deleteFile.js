@@ -8,6 +8,11 @@ import chalk from 'chalk'
 export async function deleteFile(filename, FolderName = ".local/share/Notes") {
   const prompt = PromptSync()
   try {
+    if (filename === "index.txt") {
+      spinner.warn(chalk.redBright(`Deleting this file is not recommended : ${chalk.greenBright('Y(yes)')} : ${chalk.redBright('N(no)')}`));
+      const forceDelete = prompt()
+      if (forceDelete.toLowerCase() === 'n' || forceDelete.toLowerCase() === 'no') return spinner.succeed('Aborted');
+    }
     console.log(chalk.bgRedBright.black(`All The todos listed will also be erased`))
     spinner.text = "Fetching Todos"
     await showList(filename, FolderName)

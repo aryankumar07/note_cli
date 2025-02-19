@@ -12,6 +12,7 @@ export async function createTodo(todo, filename, FolderName = ".local/share/Note
     await fs.appendFile(filePath, `\n${todo}`)
     spinner.succeed(chalk.black.bgBlueBright('Todo added'))
   } catch (e) {
-    spinner.fail(chalk.red("failed to add the todo"), e)
+    console.log(chalk.redBright(e))
+    spinner.fail(chalk.red("failed to add the todo"))
   }
 }
