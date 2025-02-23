@@ -3,13 +3,25 @@ import { getPath } from "../utils/getPath.js";
 import spinner from '../utils/getSpinner.js'
 import chalk from 'chalk';
 
-export async function createTodo(todo, filename, FolderName = ".local/share/Notes") {
+
+
+// one of sending optional parameter to a function or using ...argc 
+// export async function createTodo(todo, filename, { folderName = ".local/share/Notes", priority = "low" } = {}) {
+
+
+export async function createTodo(todo, filename, priority, FolderName = ".local/share/Notes") {
   try {
+
     spinner.text = "Fetching and Validating Path .. "
     const filePath = await getPath(filename, FolderName)
     await fs.access(filePath)
     spinner.text = "Writing Todo"
-    await fs.appendFile(filePath, `\n${todo}`)
+    const todoJson = {
+      todo: todo,
+      priority: priority
+    }
+
+    await fs.appendFile(filePath, `\n${JSON.stringify(todoJson)}`)
     spinner.succeed(chalk.black.bgBlueBright('Todo added'))
   } catch (e) {
     console.log(chalk.redBright(e))

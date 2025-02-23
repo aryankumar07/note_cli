@@ -11,6 +11,8 @@ import figlet from "figlet";
 import chalk from "chalk";
 
 
+
+
 function Command() {
   yargs(hideBin(process.argv))
     .usage('Usage: note <command> [options]')
@@ -87,12 +89,21 @@ function Command() {
       'add <Todo>',
       'Create a Todo',
       (yargs) => {
-        yargs.options('f', {
-          alias: "filename",
-          description: "Name the specific file you want to add",
-          demandOption: false,
-          type: 'string'
-        })
+        yargs
+          .options('f', {
+            alias: "filename",
+            description: "Name the specific file you want to add",
+            demandOption: false,
+            type: 'string'
+
+          })
+          .options('p', {
+            alias: "priority",
+            description: "Add Priority to Task",
+            demandOption: false,
+            type: 'string'
+          }
+          )
       },
       (argv) => {
         if (argv.Todo === undefined) {
@@ -101,10 +112,14 @@ function Command() {
         }
         const todo = argv.Todo
         let filename = 'index.txt';
+        let priority = "low";
         if (argv.f) {
           filename = argv.f + '.txt'
         }
-        createTodo(todo, filename)
+        if (argv.p) {
+          priority = argv.p
+        }
+        createTodo(todo, filename, priority)
       }
     )
     .command(
