@@ -14,22 +14,18 @@ export async function markDone(todo, filename, clear, FolderName = ".local/share
     } else {
       spinner.text = "Reading Files"
       const data = await fs.readFile(filepath, 'utf-8')
-      const todos = data.split('\n').splice(1);
-
+      const todos = data.split('\n').filter((todo) => todo === '' ? false : true);
       let index = todos.reduce((acc, curr, index) => {
-        if (curr.todo === todo) {
-          acc = index
+        if (JSON.parse(curr).todo === todo) {
+          acc = index;
           return acc;
         }
       }, -1)
-
-      console.log(index)
-
       if (index !== -1) {
         todos.splice(index, 1);
         await fs.writeFile(filepath, '')
         todos.forEach(async (todo) => {
-          await fs.appendFile(filepath, todo + '\n')
+          await fs.appendFile(filepath, '\n' + todo)
         })
         spinner.succeed(chalk.blueBright('Todo updated'))
       } else {
