@@ -9,6 +9,7 @@ import { markDone } from "../operations/markDone.js";
 import spinner from "../utils/getSpinner.js";
 import figlet from "figlet";
 import chalk from "chalk";
+import { OrangeColor } from "../utils/colorSchemes.js";
 
 
 
@@ -22,13 +23,13 @@ function Command() {
       () => { },
       () => {
         spinner.succeed(
-          figlet.textSync(`NOTE`, {
+          OrangeColor(figlet.textSync(` NOTE`, {
             font: "Ghost",
             horizontalLayout: "default",
             verticalLayout: "default",
             width: 80,
             whitespaceBreak: true,
-          })
+          }))
         );
         console.log(`
           ${chalk.blue.bold("Welcome to Note CLI! 🚀")}
@@ -117,9 +118,14 @@ function Command() {
           filename = argv.f + '.txt'
         }
         if (argv.p) {
-          priority = argv.p
+          priority = argv.p.toLowerCase()
+          if (priority === 'high' || priority === 'low' || priority === 'medium') {
+            createTodo(todo, filename, priority)
+          } else {
+            spinner.warn(`${chalk.redBright('Enter a valid tag { high, medium , low}')}`)
+            return;
+          }
         }
-        createTodo(todo, filename, priority)
       }
     )
     .command(
