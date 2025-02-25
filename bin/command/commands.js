@@ -119,12 +119,12 @@ function Command() {
         }
         if (argv.p) {
           priority = argv.p.toLowerCase()
-          if (priority === 'high' || priority === 'low' || priority === 'medium') {
-            createTodo(todo, filename, priority)
-          } else {
-            spinner.warn(`${chalk.redBright('Enter a valid tag { high, medium , low}')}`)
-            return;
-          }
+        }
+        if (priority === 'high' || priority === 'low' || priority === 'medium') {
+          createTodo(todo, filename, priority)
+        } else {
+          spinner.warn(`${chalk.redBright('Enter a valid tag { high, medium , low}')}`)
+          return;
         }
       }
     )
