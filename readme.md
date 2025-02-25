@@ -132,6 +132,17 @@ note --help
   note done -f <FileName> -a
   ```
 
+  ### 🔹 Adding Priorities to Task
+- **Note Support 3 types : {High, Medium, low}**
+- **THe default is set to "LOW" if not specified**
+  
+  ```bash
+  note add <TodoName> -p medium
+  ```
+- **To add to a specific File use the -f flag**
+ ```bash
+  note add <TodoName> -p medium -f <FileName>
+  ```
 ---
 
 ## 🤝 Contributing
