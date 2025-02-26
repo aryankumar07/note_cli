@@ -1,5 +1,8 @@
 # Note CLI - A Simple Terminal-Based Todo Manager
 
+[![NPM Version][npm-version-image]][npm-url]
+[![NPM Downloads][npm-downloads-image]][npm-downloads-url]
+
 ## Overview
 
 As developers, we spend a significant amount of time in our terminals. Why not have a simple, offline-friendly CLI tool to help manage your project tasks efficiently? **Note CLI** provides an easy-to-use task management solution, accessible anytime without requiring an internet connection.
@@ -158,3 +161,9 @@ Please ensure that updates include appropriate tests before submitting.
 ---
 
 Enjoy seamless task management with **Note CLI**! 🚀
+
+[npm-url]: https://www.npmjs.com/package/@tarnished_aryan/note
+[npm-version-image]: https://badgen.net/npm/v/@tarnished_aryan/note
+[npm-downloads-image]: https://badgen.net/npm/dm/@tarnished_aryan/note
+[npm-downloads-url]: https://npmcharts.com/compare/@tarnished_aryan/note?minimal=true
+
