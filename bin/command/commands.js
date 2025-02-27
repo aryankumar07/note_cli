@@ -6,6 +6,7 @@ import { createTodo } from "../operations/createTodo.js";
 import { showList } from "../operations/showList.js";
 import { deleteFile } from "../operations/deleteFile.js"
 import { markDone } from "../operations/markDone.js";
+import { uninstallNotes } from "../operations/uninstallNotes.js";
 import spinner from "../utils/getSpinner.js";
 import figlet from "figlet";
 import chalk from "chalk";
@@ -171,6 +172,14 @@ function Command() {
         }
         const todo = argv.Todo;
         markDone(todo, filename, clear);
+      }
+    )
+    .command(
+      'uninstall',
+      'unistall Notes',
+      (yargs) => { },
+      (argv) => {
+        uninstallNotes()
       }
     )
     .argv

@@ -2,6 +2,7 @@
 
 [![NPM Version][npm-version-image]][npm-url]
 [![NPM Downloads][npm-downloads-image]][npm-downloads-url]
+[![OpenSSF Scorecard Badge][ossf-scorecard-badge]][ossf-scorecard-visualizer]
 
 ## Overview
 
@@ -146,6 +147,16 @@ note --help
  ```bash
   note add <TodoName> -p medium -f <FileName>
   ```
+
+  
+  ### 🔹Uninstalling Note
+- currently working only for Macos/Linux users
+  ```bash
+  note uninstall
+  ```
+
+
+
 ---
 
 ## 🤝 Contributing
@@ -166,4 +177,6 @@ Enjoy seamless task management with **Note CLI**! 🚀
 [npm-version-image]: https://badgen.net/npm/v/@tarnished_aryan/note
 [npm-downloads-image]: https://badgen.net/npm/dm/@tarnished_aryan/note
 [npm-downloads-url]: https://npmcharts.com/compare/@tarnished_aryan/note?minimal=true
+[ossf-scorecard-badge]: https://api.scorecard.dev/projects/github.com/aryankumar07/note_cli/badge
+[ossf-scorecard-visualizer]: https://ossf.github.io/scorecard-visualizer/#/projects/github.com/aryankumar07/note_cli
 
